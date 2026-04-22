@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Globalization;
 using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
@@ -296,8 +297,8 @@ private void ExtractCoordinates(string messageText, string playerName)
     foreach (Match match in matches)
     {
         if (match.Groups.Count >= 4 &&
-            float.TryParse(match.Groups[2].Value, out var x) &&
-            float.TryParse(match.Groups[3].Value, out var y))
+            float.TryParse(match.Groups[2].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
+            float.TryParse(match.Groups[3].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var y))
         {
             // Extract map area (if present)
             string mapArea = match.Groups[1].Success ? match.Groups[1].Value.Trim() : string.Empty;
@@ -362,8 +363,8 @@ public bool ProcessChatMessage(string playerName, string message)
             foreach (Match match in matches)
             {
                 if (match.Groups.Count >= 4 &&
-                    float.TryParse(match.Groups[2].Value, out var x) &&
-                    float.TryParse(match.Groups[3].Value, out var y))
+                    float.TryParse(match.Groups[2].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
+                    float.TryParse(match.Groups[3].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var y))
                 {
                     // Extract map area (if present)
                     string mapArea = match.Groups[1].Success ? match.Groups[1].Value.Trim() : string.Empty;
