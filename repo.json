@@ -6,14 +6,14 @@
     "Description": "Import coordinates from selected channels and enjoy your treasure hunt. Optimize routes considering player location, aetheryte costs, and distances.",
     "InternalName": "OnePiece",
     "RepoUrl": "https://github.com/marloesske/onepiece",
-    "DownloadCount": 0,
-    "LastUpdate": 1776896176000,
-    "DownloadLinkInstall": "https://github.com/Marloesske/onepiece/releases/download/v1.0.3.0/OnePiece.zip",
-    "DownloadLinkUpdate": "https://github.com/Marloesske/onepiece/releases/download/v1.0.3.0/OnePiece.zip",
-    "AssemblyVersion": "1.0.3.0",
+    "DownloadCount": 1,
+    "LastUpdate": 1776959040000,
+    "DownloadLinkInstall": "https://github.com/Marloesske/onepiece/releases/download/v1.0.3.1/OnePiece.zip",
+    "DownloadLinkUpdate": "https://github.com/Marloesske/onepiece/releases/download/v1.0.3.1/OnePiece.zip",
+    "AssemblyVersion": "1.0.3.1",
     "ApplicableVersion": "any",
     "DalamudApiLevel": "14",
-    "Changelog": "- Bug fixes and improvements",
+    "Changelog": "- Bump version\r\n- A check if we can gather coords while in opt",
     "IconUrl": "https://raw.githubusercontent.com/marloesske/onepiece/refs/heads/master/OnePiece/img/logo.png"
   }
 ]
