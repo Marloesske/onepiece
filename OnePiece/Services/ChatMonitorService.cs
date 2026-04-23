@@ -77,7 +77,7 @@ public class ChatMonitorService : IDisposable
     private void OnRouteOptimized(object? sender, int count)
     {
         // Pause coordinate importing when route is optimized to prevent new coordinates from being added
-        isImportingCoordinates = false;
+        isImportingCoordinates = true;
 
         // Log the optimization completion for debugging purposes
         Plugin.Log.Information($"Route optimization completed with {count} coordinates. Coordinate importing paused.");
