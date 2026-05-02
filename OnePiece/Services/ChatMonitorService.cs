@@ -15,6 +15,7 @@ using OnePiece.Helpers;
 using OnePiece.Models;
 using OnePiece.Localization;
 using ECommons.Automation;
+using System.Globalization;
 
 namespace OnePiece.Services;
 
@@ -77,7 +78,7 @@ public class ChatMonitorService : IDisposable
     private void OnRouteOptimized(object? sender, int count)
     {
         // Pause coordinate importing when route is optimized to prevent new coordinates from being added
-        isImportingCoordinates = false;
+        isImportingCoordinates = true;
 
         // Log the optimization completion for debugging purposes
         Plugin.Log.Information($"Route optimization completed with {count} coordinates. Coordinate importing paused.");
@@ -297,8 +298,8 @@ private void ExtractCoordinates(string messageText, string playerName)
     foreach (Match match in matches)
     {
         if (match.Groups.Count >= 4 &&
-            float.TryParse(match.Groups[2].Value, out var x) &&
-            float.TryParse(match.Groups[3].Value, out var y))
+            float.TryParse(match.Groups[2].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
+            float.TryParse(match.Groups[3].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var y))
         {
             // Extract map area (if present)
             string mapArea = match.Groups[1].Success ? match.Groups[1].Value.Trim() : string.Empty;
@@ -363,8 +364,8 @@ public bool ProcessChatMessage(string playerName, string message)
             foreach (Match match in matches)
             {
                 if (match.Groups.Count >= 4 &&
-                    float.TryParse(match.Groups[2].Value, out var x) &&
-                    float.TryParse(match.Groups[3].Value, out var y))
+                    float.TryParse(match.Groups[2].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var x) &&
+                    float.TryParse(match.Groups[3].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out var y))
                 {
                     // Extract map area (if present)
                     string mapArea = match.Groups[1].Success ? match.Groups[1].Value.Trim() : string.Empty;
